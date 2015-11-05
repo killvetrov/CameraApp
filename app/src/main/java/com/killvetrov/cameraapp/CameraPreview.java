@@ -11,7 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.io.IOException;
+import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Killvetrov on 02-Nov-15.
@@ -25,6 +28,7 @@ public class CameraPreview extends ViewGroup implements SurfaceHolder.Callback {
 
     private Camera.Size previewSize;
     private List<Camera.Size> supportPreviewSizes;
+    private String mFlashMode;
 
     public CameraPreview(Context context, SurfaceView surface) {
         super(context);
@@ -32,6 +36,7 @@ public class CameraPreview extends ViewGroup implements SurfaceHolder.Callback {
         this.mSurface = surface;
         this.mHolder = surface.getHolder();
         this.mHolder.addCallback(this);
+        mFlashMode = Camera.Parameters.FLASH_MODE_AUTO;
     }
 
     public void setmCamera(Camera mCamera) {
@@ -127,11 +132,23 @@ public class CameraPreview extends ViewGroup implements SurfaceHolder.Callback {
             }
             camParams.setPictureSize(sizes.get(0).width,
                     sizes.get(0).height);
-            camParams.setFlashMode(Camera.Parameters.FLASH_MODE_AUTO);
+            camParams.setFlashMode(mFlashMode);
             requestLayout();
             mCamera.setParameters(camParams);
             mCamera.startPreview();
         }
+    }
+
+    public void setFlashMode(String flashModeValue) {
+        Camera.Parameters camParams = mCamera.getParameters();
+        camParams.setFlashMode(flashModeValue);
+        mCamera.setParameters(camParams);
+        mFlashMode = flashModeValue;
+        Log.d("camera_setflash", "set to " + flashModeValue);
+    }
+
+    public String getFlashMode() {
+        return mCamera.getParameters().getFlashMode();
     }
 
     @Override

@@ -7,9 +7,57 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" android:id="@+id/surface_main" />
 
-    <ImageButton
-        android:layout_width="72dp"
-        android:layout_height="72dp" android:id="@+id/ibtn_one" android:layout_gravity="bottom|center_horizontal"
-        android:src="@drawable/ic_camera_alt_24dp" />
+    <GridLayout
+        android:id="@+id/grid"
+        android:layout_gravity="start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rowCount="3"
+        android:columnCount="3" android:alignmentMode="alignBounds" >
+
+        <View android:background="@drawable/grid_stroke" android:layout_width="0dp" android:layout_height="0dp" android:layout_gravity="fill" android:layout_columnWeight="1" android:layout_rowWeight="1" />
+        <View android:background="@drawable/grid_stroke" android:layout_width="0dp" android:layout_height="0dp" android:layout_gravity="fill" android:layout_columnWeight="1" android:layout_rowWeight="1" />
+        <View android:background="@drawable/grid_stroke" android:layout_width="0dp" android:layout_height="0dp" android:layout_gravity="fill" android:layout_columnWeight="1" android:layout_rowWeight="1" />
+        <View android:background="@drawable/grid_stroke" android:layout_width="0dp" android:layout_height="0dp" android:layout_gravity="fill" android:layout_columnWeight="1" android:layout_rowWeight="1" />
+        <View android:background="@drawable/grid_stroke" android:layout_width="0dp" android:layout_height="0dp" android:layout_gravity="fill" android:layout_columnWeight="1" android:layout_rowWeight="1" />
+        <View android:background="@drawable/grid_stroke" android:layout_width="0dp" android:layout_height="0dp" android:layout_gravity="fill" android:layout_columnWeight="1" android:layout_rowWeight="1" />
+        <View android:background="@drawable/grid_stroke" android:layout_width="0dp" android:layout_height="0dp" android:layout_gravity="fill" android:layout_columnWeight="1" android:layout_rowWeight="1" />
+        <View android:background="@drawable/grid_stroke" android:layout_width="0dp" android:layout_height="0dp" android:layout_gravity="fill" android:layout_columnWeight="1" android:layout_rowWeight="1" />
+        <View android:background="@drawable/grid_stroke" android:layout_width="0dp" android:layout_height="0dp" android:layout_gravity="fill" android:layout_columnWeight="1" android:layout_rowWeight="1" />
+    </GridLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom"
+        android:background="#AA000000">
+
+        <ImageButton
+            android:id="@+id/ibtn_grid"
+            android:layout_width="72dp"
+            android:layout_height= "72dp"
+            android:tint="#FFF"
+            android:src="@drawable/ic_grid_on_24dp"
+            android:background="#00000000"
+            android:layout_marginLeft="24dp"
+            android:layout_gravity="start|center_vertical"/>
+
+        <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="72dp" android:id="@+id/ibtn_one" android:layout_gravity="center"
+            android:background="@drawable/button_bg"
+            android:src="@drawable/ic_camera_alt_24dp" />
+
+        <ImageButton
+            android:id="@+id/ibtn_flash"
+            android:layout_width="72dp"
+            android:layout_height= "72dp"
+            android:src="@drawable/ic_flash_auto_24dp"
+            android:tint="#FFF"
+            android:background="#0000"
+            android:layout_marginRight="24dp"
+            android:layout_gravity="end|center_vertical"/>
+
+    </FrameLayout>
 
 </FrameLayout>
